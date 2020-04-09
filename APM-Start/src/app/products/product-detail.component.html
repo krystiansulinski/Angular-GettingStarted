@@ -3,39 +3,47 @@
     <div class='card-header'>
         {{ pageTitle + ': ' + product.productName }}
     </div>
-    <div class='table-responsive'>
-        <table class='table'
-               *ngIf='product'>
-            <tbody>
-                <tr>
-                    <td>Name:</td>
-                    <td>{{ product.productName }}</td>
-                </tr>
-                <tr>
-                    <td>Code:</td>
-                    <td>{{ product.productCode | lowercase | convertToSpaces: '-' }}</td>
-                </tr>
-                <tr>
-                    <td>Description:</td>
-                    <td>{{ product.description }}</td>
-                </tr>
-                <tr>
-                    <td>Availability:</td>
-                    <td>{{ product.releaseDate }}</td>
-                </tr>
-                <tr>
-                    <td>Price:</td>
-                    <td>{{ product.price | currency:'USD':'symbol':'1.2-2'}}</td>
-                </tr>
-                <tr>
-                    <td>5 Star Rating:</td>
-                    <td>
+
+    <div class='card-body'>
+        <div class='row'>
+            <div class='col-md-8'>
+                <div class='row'>
+                    <div class='col-md-4'>Name:</div>
+                    <div class='col-md-8'>{{ product.productName }}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Code:</div>
+                    <div class='col-md-8'>{{ product.productCode | lowercase | convertToSpaces: '-' }}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Description:</div>
+                    <div class='col-md-8'>{{ product.description }}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Availability:</div>
+                    <div class='col-md-8'>{{ product.releaseDate }}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Price:</div>
+                    <div class='col-md-8'>{{ product.price|currency:'USD':'symbol' }}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>5 Star Rating:</div>
+                    <div class='col-md-8'>
                         <pm-star [rating]='product.starRating'>
                         </pm-star>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-md-4'>
+                <img class='center-block img-responsive'
+                     [style.width.px]='200'
+                     [style.margin.px]='2'
+                     [src]='product.imageUrl'
+                     [title]='product.productName'>
+            </div>
+        </div>
     </div>
 
     <div class='card-footer'>

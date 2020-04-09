@@ -19,9 +19,9 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
 
-    this.productService.getProducts().subscribe({
-      next: (products: IProduct[]) =>
-        this.product = products.find(p => p.productId === id),
+    this.productService.getProduct(id).subscribe({
+      next: (product: IProduct) =>
+        this.product = product,
       error: err => this.errorMessage = err,
     })
   }
