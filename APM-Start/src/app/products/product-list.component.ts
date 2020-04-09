@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product'
 import { ProductService } from './product.service';
-
 @Component({
     selector: 'pm-products',
     templateUrl: './product-list.component.html',
